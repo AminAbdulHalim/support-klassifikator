@@ -1,0 +1,11 @@
+{
+  "anzahl_pro_prioritaet": {
+    "hoch": 2,
+    "normal": 4
+  },
+  "anzahl_pro_kategorie": {
+    "Sonstiges": 3,
+    "IAM": 2,
+    "Netzwerk": 1
+  }
+}

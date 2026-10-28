@@ -1,0 +1,241 @@
+{
+  "zusammenfassung": {
+    "mails": 23,
+    "gueltig": 23,
+    "fehler": 0,
+    "richtig": 22,
+    "gesamtkosten": 0.001378
+  },
+  "mails": [
+    {
+      "betreff": "Betreff: Konto gesperrt",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.2e-05
+    },
+    {
+      "betreff": "Betreff: Passwort ändern",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "kategorie": "Zugang",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.6e-05
+    },
+    {
+      "betreff": "Betreff: Neuer Mitarbeiter",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "kategorie": "Zugang",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.6e-05
+    },
+    {
+      "betreff": "Betreff: Zwei-Faktor-Code",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.7e-05
+    },
+    {
+      "betreff": "Betreff: Berechtigung Ordner",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "kategorie": "Zugang",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.7e-05
+    },
+    {
+      "betreff": "Betreff: Laptop startet nicht",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Hardware",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.9e-05
+    },
+    {
+      "betreff": "Betreff: Maus defekt",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6e-05
+    },
+    {
+      "betreff": "Betreff: Drucker defekt",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Hardware",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.2e-05
+    },
+    {
+      "betreff": "Betreff: Zweiter Monitor",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.5e-05
+    },
+    {
+      "betreff": "Betreff: Tastatur",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.5e-05
+    },
+    {
+      "betreff": "Betreff: Internet weg",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Netzwerk",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.9e-05
+    },
+    {
+      "betreff": "Betreff: WLAN langsam",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "normal",
+      "kategorie": "Netzwerk",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.6e-05
+    },
+    {
+      "betreff": "Betreff: VPN",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Netzwerk",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.1e-05
+    },
+    {
+      "betreff": "Betreff: Gast-WLAN",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "normal",
+      "kategorie": "Netzwerk",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.9e-05
+    },
+    {
+      "betreff": "Betreff: Netzlaufwerk",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "normal",
+      "kategorie": "Netzwerk",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.1e-05
+    },
+    {
+      "betreff": "Betreff: Kantine",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.5e-05
+    },
+    {
+      "betreff": "Betreff: Urlaubsantrag",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.5e-05
+    },
+    {
+      "betreff": "Betreff: Excel-Schulung",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.7e-05
+    },
+    {
+      "betreff": "Betreff: Besucherzahlen",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Sonstiges",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.4e-05
+    },
+    {
+      "betreff": "Betreff: Danke",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.8e-05
+    },
+    {
+      "betreff": "Betreff: VPN-Verbindung bricht ab, liegt das am Netzwerk?",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "kategorie": "Netzwerk",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": false,
+      "preis": 6.4e-05
+    },
+    {
+      "betreff": "Betreff: DRINGEND: WICHTIG! Frage zur Urlaubsantrag-Kategorisierung",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.1e-05
+    },
+    {
+      "betreff": "Betreff: Account-Sperrung droht / Passwort-Reset schlägt fehl",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7e-05
+    }
+  ]
+}

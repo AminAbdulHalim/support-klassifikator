@@ -1,0 +1,11 @@
+# Geheimnisse: nie committen
+.env
+
+# Virtuelle Umgebung
+.venv/
+
+# Python-Zwischendateien
+__pycache__/
+
+# Datei, die nichts im Repo zutun hat
+lauf.log
