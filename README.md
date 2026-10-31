@@ -4,9 +4,24 @@ Dieses Lernprojekt demonstriert die automatische Klassifizierung von Support-E-M
 
 ## Architektur
 
-(folgt)
+```text
+testmails.json → Claude API → Antwort prüfen → Kosten und Vergleich → auswertung.json
+```
 
-## Setup
+1. `testmails.json` einlesen (23 erfundene Mails mit Soll-Kategorie und Soll-Priorität)
+2. Claude API aufrufen (System-Prompt und Mail, Antwort als JSON)
+3. Antwort prüfen: abgeschnitten? gültiges JSON? erlaubte Werte?
+4. Kosten pro Aufruf berechnen, mit dem Soll-Label vergleichen, Verlauf in `lauf.log` protokollieren
+5. Ergebnis als `auswertung.json` speichern
+
+| Datei | Aufgabe |
+|---|---|
+| `klassifikator.py` | Hauptskript: klassifiziert die Testmails mit Claude, prüft die Antworten und rechnet die Kosten |
+| `ticket_pipeline.py` | Regelbasierte Ticket-Auswertung ohne KI: liest `tickets.csv`, ordnet Kategorie und Priorität per Regeln zu, zählt und schreibt `pipeline_auswertung.json` |
+| `testmails.json` | Testdaten: 23 erfundene Support-Mails mit Soll-Labels |
+| `tickets.csv` | Beispieltickets für die Pipeline |
+| `auswertung.json` | Beispielausgabe des Klassifikators |
+| `pipeline_auswertung.json` | Beispielausgabe der Ticket-Pipeline |
 
 ## Setup
 
