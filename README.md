@@ -53,7 +53,35 @@ Die Ticket-Pipeline (`ticket_pipeline.py`) braucht keinen Key und kostet nichts.
 
 ## Beispielausgabe
 
-(folgt)
+`python klassifikator.py` schreibt `auswertung.json` (Auszug):
+
+```json
+{
+  "zusammenfassung": {
+    "mails": 23,
+    "gueltig": 23,
+    "fehler": 0,
+    "richtig": 22,
+    "gesamtkosten": 0.001378
+  },
+  "mails": [
+    {
+      "betreff": "Betreff: Konto gesperrt",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.2e-05
+    }
+  ]
+}
+```
+
+Eine Mail von 23 weicht vom Soll ab: Die VPN-Mail ("liegt das am Netzwerk?") ordnet Claude als `Netzwerk` ein, das Soll-Label lautet `Zugang`. Beides ist vertretbar, siehe Grenzen.
+
+Die Kosten und Preise schwanken zwischen Läufen leicht, die Zuordnung war in zwei Läufen gleich.
 
 ## Grenzen und bekannte Fehler
 
