@@ -85,7 +85,21 @@ Die Kosten und Preise schwanken zwischen Läufen leicht, die Zuordnung war in zw
 
 ## Grenzen und bekannte Fehler
 
-(folgt)
+**Testdaten**
+- Der Testsatz hat nur 23 Mails. Sie wurden von Claude erzeugt und von mir geprüft, die Soll-Labels ebenso. Es sind keine echten Support-Mails.
+- Es gibt keinen getrennten Testsatz: Dieselben 23 Mails dienten zum Entwickeln des Prompts und zum Messen. "22 von 23 richtig" sagt deshalb nichts über die Qualität bei echten Mails aus.
+- Es gab einige Läufe, für belastbare Aussagen zur Streuung braucht es deutlich mehr Läufe und einen größeren Testsatz.
+- Die Mail "VPN-Verbindung bricht ab, liegt das am Netzwerk?" (Mail 21) ist nicht eindeutig. Das Soll-Label lautet `Zugang`, Claude wählt je nach Lauf `Netzwerk` oder `Zugang`. Das Soll-Label ist meine Festlegung, kein objektiver Fehler des Modells.
+
+**Technik**
+- Die Preise stammen aus der Anthropic-Dokumentation zum Modell Haiku 5.5 (Stand Oktober 2026) und liegen als Konstanten (`PREIS_IN`, `PREIS_OUT`) im Skript. Sie können veralten. Die ausgegebenen Kosten sind eine Berechnung, keine Abrechnung.
+- Es gibt keine automatischen Tests. Getestet wurde nur unter Windows (PowerShell) mit Python 3.14.8.
+- Das Verhalten bei API-Fehlern (zum Beispiel Wiederholungen) ist nicht geprüft. Für den Dauerbetrieb braucht es Tests, Monitoring und Fehlerbehandlung.
+- `ticket_pipeline.py` arbeitet mit einfachen Stichwortregeln, in der Beispielausgabe landen 3 von 6 Tickets bei "Sonstiges".
+
+**Bekannte Fehler (behoben)**
+- Claude packte das JSON teilweise in einen Markdown-Zaun, `json.loads` scheiterte. Behoben durch Bereinigung vor dem Einlesen.
+- Die Kostensumme zeigte Gleitkomma-Artefakte (`0.0015128000000000003`). Behoben mit `round(gesamtkosten, 6)`.
 
 ## Was ich anders machen würde
 
