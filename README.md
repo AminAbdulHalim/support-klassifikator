@@ -103,4 +103,8 @@ Die Kosten und Preise schwanken zwischen Läufen leicht, die Zuordnung war in zw
 
 ## Was ich anders machen würde
 
-(folgt)
+1. **Testsatz:** Ich würde einen größeren Testsatz aufbauen und ihn vom Satz zum Entwickeln trennen. Er bestünde aus Mails ohne Personenbezug, nach Datenschutzprüfung. So lässt sich belegen, dass ein Prompt nicht nur auf die 23 Mails zugeschnitten ist.
+2. **Prompt:** Ich würde Prompt-Varianten systematisch vergleichen, mit mehreren Läufen pro Variante, weil einzelne Läufe streuen. Das ersetzt den Weg über Bauchgefühl.
+3. **Grenzfälle:** Bei mehrdeutigen Mails wie der VPN-Mail würde ich eine Kategorie "Unklar" einführen. Das Modell muss sich dann nicht auf eine Kategorie festlegen. Der Preis ist, dass diese Mails von Menschen geprüft werden müssen.
+4. **Zuverlässigkeit:** Ich würde zuerst klären, welche Wiederholungen das SDK selbst übernimmt, und nur das Fehlende ergänzen (zum Beispiel Wiederholung mit wachsendem Abstand bei Rate-Limits), dazu automatische Tests und Protokollierung für den Dauerbetrieb.
+5. **Struktur:** Ich würde API-Aufruf, Antwortprüfung und Auswertung trennen. Dann lässt sich die Prüfung ohne API-Aufruf testen, und ein Modellwechsel betrifft nur einen Teil des Codes.
