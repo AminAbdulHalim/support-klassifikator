@@ -18,6 +18,7 @@ testmails.json → Claude API → Antwort prüfen → Kosten und Vergleich → a
 |---|---|
 | `klassifikator.py` | Hauptskript: klassifiziert die Testmails mit Claude, prüft die Antworten und rechnet die Kosten |
 | `ticket_pipeline.py` | Regelbasierte Ticket-Auswertung ohne KI: liest `tickets.csv`, ordnet Kategorie und Priorität per Regeln zu, zählt und schreibt `pipeline_auswertung.json` |
+| `ticket_cli.py` | Kommandozeilen-Tool: zählt Tickets einer beliebigen CSV (Spalten `id`, `text`) und findet Dubletten; nutzt die Regeln aus `ticket_pipeline.py` als Modul |
 | `testmails.json` | Testdaten: 23 erfundene Support-Mails mit Soll-Labels |
 | `tickets.csv` | Beispieltickets für die Pipeline |
 | `auswertung.json` | Beispielausgabe des Klassifikators |
@@ -49,9 +50,36 @@ Getestet mit Python 3.14.8 unter Windows (PowerShell).
    ```powershell
    python klassifikator.py
    ```
-Die Ticket-Pipeline (`ticket_pipeline.py`) braucht keinen Key und kostet nichts.
+Die Ticket-Pipeline (`ticket_pipeline.py`) und das Ticket-CLI (`ticket_cli.py`) brauchen keinen Key und kosten nichts.
 
-## Beispielausgabe
+## Ticket-CLI verwenden
+
+`ticket_cli.py` liest eine CSV-Datei mit den Pflichtspalten `id` und `text`, zählt die Tickets nach Priorität und Kategorie und meldet Dubletten. Es nutzt nur die Standardbibliothek und schreibt keine Dateien.
+
+```powershell
+python ticket_cli.py --input tickets.csv          # Klartext
+python ticket_cli.py --input tickets.csv --json   # maschinenlesbar
+```
+
+Ausgabe für die mitgelieferte `tickets.csv`:
+
+```text
+Tickets gesamt: 6
+Anzahl pro Priorität:
+  hoch: 2
+  normal: 4
+Anzahl pro Kategorie:
+  Sonstiges: 3
+  IAM: 2
+  Netzwerk: 1
+Keine Dubletten.
+```
+
+- **Dubletten:** Zwei Tickets gelten als Dublette, wenn ihre Texte nach `.lower()` identisch sind. Gemeldet wird der kleingeschriebene Text, nicht der Originaltext der Tickets, zum Beispiel `"vpn geht nicht": IDs 1, 2` für "VPN geht nicht" und "vpn GEHT nicht".
+- **Groß-/Kleinschreibung:** Auch die Regeln für Kategorie und Priorität ignorieren sie, "Drucker DEFEKT" zählt also als `hoch`.
+- **Fehler:** Bei fehlender Datei, leerer Datei, fehlender Spalte oder nicht UTF-8-kodierter Datei erscheint eine Meldung auf `stderr` und der Exit-Code ist 1. Fehlt `--input`, beendet `argparse` das Programm mit Exit-Code 2.
+
+## Beispielausgabe Klassifikator
 
 `python klassifikator.py` schreibt `auswertung.json` (Auszug):
 
@@ -95,7 +123,7 @@ Die Kosten und Preise schwanken zwischen Läufen leicht, die Zuordnung war in zw
 - Die Preise stammen aus der Anthropic-Dokumentation zum Modell Haiku 5.5 (Stand Oktober 2026) und liegen als Konstanten (`PREIS_IN`, `PREIS_OUT`) im Skript. Sie können veralten. Die ausgegebenen Kosten sind eine Berechnung, keine Abrechnung.
 - Es gibt keine automatischen Tests. Getestet wurde nur unter Windows (PowerShell) mit Python 3.14.8.
 - Das Verhalten bei API-Fehlern (zum Beispiel Wiederholungen) ist nicht geprüft. Für den Dauerbetrieb braucht es Tests, Monitoring und Fehlerbehandlung.
-- `ticket_pipeline.py` arbeitet mit einfachen Stichwortregeln, in der Beispielausgabe landen 3 von 6 Tickets bei "Sonstiges".
+- `ticket_pipeline.py` (und damit auch `ticket_cli.py`) arbeitet mit einfachen Stichwortregeln, in der Beispielausgabe landen 3 von 6 Tickets bei "Sonstiges". Die Regeln ignorieren Groß-/Kleinschreibung, erkennen aber nur die Stichwörter "defekt", "geht nicht", "passwort" und "vpn".
 
 **Bekannte Fehler (behoben)**
 - Claude packte das JSON teilweise in einen Markdown-Zaun, `json.loads` scheiterte. Behoben durch Bereinigung vor dem Einlesen.
