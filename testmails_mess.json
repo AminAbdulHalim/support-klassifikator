@@ -1,0 +1,122 @@
+[
+  {
+    "mail": "Betreff: WLAN Besprechungsraum 3.04\nMoin, das WLAN im Besprechungsraum 3.04 bricht seit heute Vormittag immer wieder ab. Wir sitzen hier gerade mit vier Leuten und fliegen ständig aus dem Netz. Bitte mal prüfen.",
+    "soll_kategorie": "Netzwerk",
+    "soll_prioritaet": "normal",
+    "grenzfall": true
+  },
+  {
+    "mail": "Betreff: Wichtig: Zugriff auf Z:\\Projekte verweigert\nMoin, ich komme seit heute Morgen nicht mehr in den Haupt-Projektordner rein. Ich erhalte jedes Mal die Meldung „Zugriff verweigert“. Nächste Woche steht das interne Audit an und ich muss die Unterlagen noch prüfen – könnt ihr euch das bitte mal ansehen?",
+    "soll_kategorie": "Zugang",
+    "soll_prioritaet": "normal",
+    "grenzfall": true
+  },
+  {
+    "mail": "Betreff: Neuer Zweitmonitor flackert stark\nHallo Support-Team, mein vor zwei Tagen gelieferter Zweitmonitor am Arbeitsplatz flackert ununterbrochen und geht alle paar Minuten komplett aus. Ein Neustart des Bildschirms hat leider nichts gebracht. Da ich noch meinen Hauptmonitor nutzen kann, ist ein Arbeiten zum Glück weiterhin möglich.",
+    "soll_kategorie": "Hardware",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Dringend: Account gesperrt – Präsentation in 30 Minuten\nHallo IT, nach dreimaliger Falscheingabe meines Passworts ist mein Benutzeraccount komplett gesperrt. Ich stehe unmittelbar vor einer Kundenpräsentation im Meetingraum, die in einer halben Stunde beginnt. Ich kann mich an keinem Rechner mehr anmelden und bin aktuell völlig handlungsunfähig.",
+    "soll_kategorie": "Zugang",
+    "soll_prioritaet": "hoch",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Kompletter Netzwerkausfall im 2. Obergeschoss\nGuten Tag, seit ca. 10 Minuten haben alle Mitarbeiter im gesamten 2. Obergeschoss weder Zugriff auf das LAN noch auf das WLAN. Sämtliche Verbindungen zu den Laufwerken und ins Internet sind abgebrochen. Das gesamte Team hier kann derzeit nicht arbeiten.",
+    "soll_kategorie": "Netzwerk",
+    "soll_prioritaet": "hoch",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Sofortige Hilfe benötigt!\nHallo zusammen, ich wollte nur kurz Bescheid geben, dass der Toner bei meinem Arbeitsplatzdrucker im Flur fast leer ist. Es druckt noch alles lesbar, aber man sieht leichte Streifen. Bitte nächste Woche neuen Toner nachlegen, danke!",
+    "soll_kategorie": "Hardware",
+    "soll_prioritaet": "normal",
+    "grenzfall": true
+  },
+  {
+    "mail": "Betreff: Kleine Frage zum Homeoffice\nHi, ich arbeite heute ausnahmsweise von zu Hause und mein Passwort für das ERP-System ist abgelaufen. Da das gesamte Controlling-Team heute auf meine Zuarbeit wartet und das Monatsreporting ohne meinen Login komplett blockiert ist, kann derzeit niemand weiterarbeiten. Könnt ihr mein Passwort bitte zurücksetzen?",
+    "soll_kategorie": "Zugang",
+    "soll_prioritaet": "hoch",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: VPN-Verbindung klemmt mal wieder\nMoin, ich versuche seit zehn Minuten vergebens, mich über das VPN ins Netz einzuwählen. Jedes Mal bricht der Verbindungsaufbau ab, weil die Hardware-Tastatur an meinem ThinkPad komplett spinnt und Tasten verschluckt. Selbst das BIOS-Passwort kann ich kaum eintippen, könnt ihr das Notebook austauschen?",
+    "soll_kategorie": "Hardware",
+    "soll_prioritaet": "normal",
+    "grenzfall": true
+  },
+  {
+    "mail": "Betreff: Anfrage zu Datenschutz Schulung im nächsten Quartal\nGuten Tag IT-Team, bietet die IT-Abteilung im kommenden Quartal wieder die Online-Schulung zum Thema IT-Sicherheit und Datenschutz an? Ich würde mich gerne vorab erkundigen, wo man die Termine einsehen kann. Es hat aber keine Eile.",
+    "soll_kategorie": "Sonstiges",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Lob und Feedback zum IT-Service\nHallo Zusammen, ich wollte mich auf diesem Weg einfach kurz für den schnellen Support gestern nach dem Umzug bedanken. Das hat alles super geklappt. Allen ein schönes Wochenende!",
+    "soll_kategorie": "Sonstiges",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Dringend: Hauptmonitore am Empfang ausgefallen\nHallo IT, am Hauptempfang sind gerade beide Monitore zeitgleich mit einem Knall ausgegangen und lassen sich nicht mehr einschalten. Wir können anreisende Gäste und externe Besucher aktuell weder ein- noch auschecken. Bitte schickt sofort jemanden vorbei!",
+    "soll_kategorie": "Hardware",
+    "soll_prioritaet": "hoch",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Berechtigung für Azubi im Projekt-Wiki beantragen\nHallo Support, unser neuer Auszubildender benötigt für seine Aufgaben Lesezugriff auf das interne Projekt-Wiki. Die Freigabe der Abteilungsleitung liegt mir bereits vor. Reicht euch das als Bestätigung aus?",
+    "soll_kategorie": "Zugang",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Internet weg\nBei uns in der ganzen Buchhaltung geht seit 8 Uhr kein Internet, auch keine Laufwerke. Keiner kommt ans Netz.",
+    "soll_kategorie": "Netzwerk",
+    "soll_prioritaet": "hoch",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: VPN lahm\nmoin, das VPN ist seit gestern Abend ziemlich langsam, Dateien laden ewig. Geht aber alles, nur zäh. Vielleicht mal anschauen.",
+    "soll_kategorie": "Netzwerk",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Kein Netz, keine Anmeldung\nHallo, mein Notebook meldet seit heute früh im Büro „Kein Netzwerk“. Deshalb klappt auch die Anmeldung am Firmenportal nicht („Server nicht erreichbar“).",
+    "soll_kategorie": "Netzwerk",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Zwei Sachen\nHi, 1) Meine Maus hakt immer wieder. 2) Das WLAN im 1. OG war heute Nachmittag zweimal kurz weg. Kein Stress, kann auch nächste Woche passieren.",
+    "soll_kategorie": "Hardware",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Altes Intranet\nhi, weiß jemand, wann das alte Intranet abgeschaltet wird? Ich brauche noch ein paar PDFs daraus.",
+    "soll_kategorie": "Sonstiges",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Token-Code wird nicht akzeptiert\nHallo, mein Token-Code wird nicht angenommen, ich komme nicht ins Firmennetz. Heute um 14 Uhr muss ich die Vorstandsvorlage abgeben, ohne Zugriff auf das Laufwerk schaffe ich das nicht.",
+    "soll_kategorie": "Zugang",
+    "soll_prioritaet": "hoch",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Headset\nMein Headset knackt dauernd und das Mikro geht nur manchmal. Brauche eigentlich nur ein neues.",
+    "soll_kategorie": "Hardware",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  },
+  {
+    "mail": "Betreff: Konto?\nHallo, ich bin ab Montag neu im Team Einkauf und habe noch keinen Zugang zum Ticketsystem. Könnt ihr das anlegen?",
+    "soll_kategorie": "Zugang",
+    "soll_prioritaet": "normal",
+    "grenzfall": false
+  }
+]
