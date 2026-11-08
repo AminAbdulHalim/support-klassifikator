@@ -25,8 +25,8 @@ prompts/*.txt + testmails_mess.json → runner.py → ergebnisse/*.json → ausw
 | `klassifikator.py` | Hauptskript: klassifiziert die Testmails mit Claude, prüft die Antworten und rechnet die Kosten |
 | `runner.py` | Wie `klassifikator.py`, aber mit Argumenten `--prompt`, `--daten`, `--ausgabe`: ein Lauf mit frei wählbarem Prompt und Datensatz |
 | `auswerten.py` | Liest alle Dateien in `ergebnisse/` in eine pandas-Tabelle und wertet Treffer je Variante und Lauf aus, auch getrennt nach Grenzfällen |
-| `prompts/` | Die Prompt-Varianten als Textdateien (`prompt_A.txt`, `prompt_B.txt`) |
-| `ergebnisse/` | Ergebnisdateien der Läufe (`A_lauf1.json` bis `B_lauf3.json`) |
+| `prompts/` | Die Prompt-Varianten als Textdateien (`prompt_A.txt`, `prompt_B.txt`, `prompt_C.txt`) |
+| `ergebnisse/` | Ergebnisdateien der Läufe (`A_lauf1.json` bis `C_lauf3.json`) |
 | `testmails.json` | Entwicklungssatz: 23 erfundene Support-Mails mit Soll-Labels |
 | `testmails_mess.json` | Messsatz: 20 erfundene Support-Mails mit Soll-Labels, davon 4 als Grenzfälle markiert |
 | `labeling_richtlinie.md` | Regeln, nach denen die Soll-Labels des Messsatzes vergeben wurden, inklusive Änderungshistorie |
@@ -97,13 +97,13 @@ Das Projekt nutzt zwei getrennte Datensätze: den Entwicklungssatz (`testmails.j
 
 ## Ergebnisse Prompt-Vergleich
 
-Messung vom 07.11.2026 auf dem Messsatz (20 Mails), Modell Haiku 5.5. Als richtig zählt eine Mail, wenn Kategorie **und** Priorität stimmen. Alle Antworten waren gültig.
+Messung auf dem Messsatz (20 Mails), Modell Haiku 5.5. A und B wurden am 07.11.2026 gemessen, C am 08.11.2026. Als richtig zählt eine Mail, wenn Kategorie **und** Priorität stimmen. Eine Antwort ohne gültiges JSON zählt als falsch.
 
-| Variante | Lauf 1 | Lauf 2 | Lauf 3 | Mittel | Kosten pro Lauf |
-|---|---|---|---|---|---|
-| A: Rolle, Format, erlaubte Werte | 16 | 16 | 16 | 16,0 von 20 (80 %) | ca. 0,0014 $ |
-| B: A plus Kategorie-Definitionen, VPN-Regel, Prioritätsregel | 18 | 19 | 19 | 18,7 von 20 (93 %) | ca. 0,0025 $ |
-| C | noch nicht gemessen | | | | |
+| Variante | Lauf 1 | Lauf 2 | Lauf 3 | Mittel | Gültige Antworten pro Lauf | Kosten pro Lauf |
+|---|---|---|---|---|---|---|
+| A: Rolle, Format, erlaubte Werte | 16 | 16 | 16 | 16,0 von 20 (80 %) | 20 | ca. 0,0014 $ |
+| B: A plus Kategorie-Definitionen, VPN-Regel, Prioritätsregel | 18 | 19 | 19 | 18,7 von 20 (93 %) | 20 | ca. 0,0025 $ |
+| C: B unverändert plus drei Beispiele (Few-Shot) | 17 | 17 | 17 | 17,0 von 20 (85 %) | 18 | ca. 0,0043 $ |
 
 Aufgeteilt nach Grenzfällen (Anteil richtig, über alle drei Läufe):
 
@@ -111,14 +111,19 @@ Aufgeteilt nach Grenzfällen (Anteil richtig, über alle drei Läufe):
 |---|---|---|
 | A | 93,75 % (45 von 48) | 25 % (3 von 12) |
 | B | 100 % (48 von 48) | 66,7 % (8 von 12) |
+| C | 87,5 % (42 von 48) | 75 % (9 von 12) |
 
 Was die Daten zeigen:
 
-- Prompt B liegt in diesem Test vorn, kostet aber rund 80 % mehr pro Lauf, weil der Prompt länger ist.
-- Bei den 16 Mails ohne Grenzfall liegt der ganze Abstand bei 3 von 48 Einstufungen (in Lauf 1 war es die Mail "Kein Netz, keine Anmeldung" bei A). Das ist ein Hinweis, kein Beleg.
+- Prompt B liegt in diesem Test vorn, kostet aber rund 80 % mehr pro Lauf als A, weil der Prompt länger ist.
+- Bei den 16 Mails ohne Grenzfall liegt der Abstand zwischen A und B bei 3 von 48 Einstufungen (in Lauf 1 war es die Mail "Kein Netz, keine Anmeldung" bei A). Das ist ein Hinweis, kein Beleg.
 - Bei den Grenzfällen ist der Abstand größer, aber auf nur 4 Mails. Prompt A vergibt dort `hoch`, wo das Soll `normal` lautet (Lauf 1: WLAN-Mail, "Wichtig"-Mail und VPN+Tastatur-Mail).
 - Prompt B scheitert an der WLAN-Mail in allen drei Läufen (`hoch` statt `normal`) und an der Audit-Mail ("Wichtig: Zugriff auf Z:\Projekte verweigert") einmal. Eine Vermutung zur WLAN-Mail: Die Regel "mehrere Personen" in Prompt B ist breiter als die Regel in der Richtlinie (ganzes Geschoss, Abteilung oder Standort). Das ist nicht gesondert geprüft.
-- Prompt A erreicht in allen drei Läufen dieselbe Trefferzahl, Prompt B schwankt um eine Mail.
+- Prompt A und Prompt C erreichen in allen drei Läufen dieselbe Trefferzahl (C mit denselben drei falschen Mails), Prompt B schwankt um eine Mail.
+- Prompt C bringt gegenüber B keine Verbesserung (17 statt 18,7 im Mittel). Die WLAN-Mail ist in allen drei C-Läufen richtig (bei B nie), das ist aber kein unabhängiger Befund (siehe Offenlegung).
+- Zwei Mails sind in C in jedem Lauf **ungültig**: "Berechtigung für Azubi im Projekt-Wiki" (das Modell antwortet in Fließtext, in Lauf 1 bricht die Antwort bei `max_tokens` ab) und "Zwei Sachen" (Erklärtext vor dem JSON). Das JSON steht dort teilweise im Text, der Runner wertet es bewusst als ungültig, weil nachgelagerter Code reines JSON erwartet. Eine mögliche Ursache habe ich nicht geprüft: Die Beispiele stehen als "E-Mail: ... Antwort: ..." im Prompt, die echte Eingabe hat dieses Format nicht.
+- Von den 18 gültigen C-Antworten pro Lauf ist nur die Z:\Projekte-Mail inhaltlich falsch (`hoch` statt `normal`, in allen drei Läufen). Prompt A macht diesen Fehler ebenfalls in allen drei Läufen, Prompt B in einem. Bei drei Läufen reicht das nicht, um zu sagen, dass die Beispiele hier geschadet haben.
+- C kostet rund 70 % mehr als B (längerer Prompt, dazu lange Antworten bei den Formatfehlern).
 
 ## Offenlegung zur Messung
 
@@ -126,6 +131,9 @@ Was die Daten zeigen:
 - Die Richtlinie wurde vor den ersten Läufen eingefroren.
 - Prompt B (Stand 05.11.2026) wurde vor dem Messsatz geschrieben und danach nicht mehr verändert. Er wurde aber auf dem Entwicklungssatz entwickelt (die VPN-Regel entstand nach einem Fehler dort).
 - Prompt B weicht absichtlich an einigen Stellen von der Richtlinie ab (zum Beispiel "am selben oder nächsten Arbeitstag" statt nur heute). Ich habe ihn nicht an die Richtlinie angeglichen, weil er sonst auf den Messsatz zugeschnitten wäre.
+- Prompt C ist Prompt B Wort für Wort plus ein Block mit drei erfundenen Beispielen (per `git diff --no-index` geprüft). C wurde **nach** den B-Ergebnissen entworfen und danach nicht mehr verändert, auch nicht nach den C-Ergebnissen.
+- Die drei Beispiele lehren dasselbe Prinzip wie je eine Messsatz-Mail, in einem anderen Szenario: Beispiel 1 (Headset, Signalwort "DRINGEND", `normal`) wie die Toner-Mail, Beispiel 2 (Vergabeportal, Frist heute, `hoch`) wie die ERP-Mail, Beispiel 3 (Teams-Ruckeln bei vier Personen, `normal`) wie die WLAN-Mail. Beispiel 3 zielt bewusst auf den bekannten B-Fehler bei der WLAN-Mail. Kein Beispieltext stammt aus dem Messsatz, der WLAN-Treffer von C ist aber kein unabhängiger Beleg dafür, dass Beispiele allgemein helfen.
+- Die Mailtexte der drei Beispiele habe ich selbst geschrieben. Die Idee für Beispiel 3 stammt von Claude, ebenso zwei Schlusssätze (neutrale Formulierung, damit ein höflicher Ton nicht mit `normal` zusammenfällt).
 
 ## Beispielausgabe Klassifikator
 
@@ -209,7 +217,7 @@ Keine Dubletten.
 ## Was ich anders machen würde
 
 1. **Testsatz:** Ich würde den Messsatz deutlich vergrößern (mindestens einige Dutzend Mails je Fallart) und die Labels von zwei Personen unabhängig vergeben lassen, um die Übereinstimmung zu messen. Die Mails sollten ohne Personenbezug und nach Datenschutzprüfung stammen.
-2. **Prompt:** Ich würde den Vergleich ausbauen (mehr Läufe, weitere Varianten wie Beispiele im Prompt) und jede Änderung am Prompt einzeln messen, damit sich Verbesserungen einer Änderung zuordnen lassen.
+2. **Prompt:** Als Nächstes würde ich C um eine Formatanweisung ergänzen (nur reines JSON, kein Text davor oder danach) und die Variante auf einem **neuen** Messsatz testen, weil der jetzige durch die Beispiele und die Richtlinie nicht mehr unabhängig ist. Dazu mehr Läufe, und jede Änderung am Prompt einzeln messen, damit sich Verbesserungen einer Änderung zuordnen lassen.
 3. **Grenzfälle:** Bei mehrdeutigen Mails wie der VPN-Mail würde ich eine Kategorie "Unklar" einführen. Das Modell muss sich dann nicht auf eine Kategorie festlegen. Der Preis ist, dass diese Mails von Menschen geprüft werden müssen.
 4. **Zuverlässigkeit:** Ich würde zuerst klären, welche Wiederholungen das SDK selbst übernimmt, und nur das Fehlende ergänzen (zum Beispiel Wiederholung mit wachsendem Abstand bei Rate-Limits), dazu automatische Tests und Protokollierung für den Dauerbetrieb.
 5. **Struktur:** Ich würde API-Aufruf, Antwortprüfung und Auswertung trennen und die Funktion nur einmal pflegen, statt sie in `runner.py` zu kopieren. Dann lässt sich die Prüfung ohne API-Aufruf testen, und ein Modellwechsel betrifft nur einen Teil des Codes.
