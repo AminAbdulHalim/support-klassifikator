@@ -1,0 +1,232 @@
+{
+  "zusammenfassung": {
+    "mails": 20,
+    "gueltig": 20,
+    "prompt": "prompts/prompt_A.txt",
+    "fehler": 0,
+    "richtig": 16,
+    "gesamtkosten": 0.001371
+  },
+  "mails": [
+    {
+      "betreff": "Betreff: WLAN Besprechungsraum 3.04",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "normal",
+      "grenzfall": true,
+      "kategorie": "Netzwerk",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": false,
+      "preis": 6.8e-05
+    },
+    {
+      "betreff": "Betreff: Wichtig: Zugriff auf Z:\\Projekte verweigert",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "grenzfall": true,
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": false,
+      "preis": 7.5e-05
+    },
+    {
+      "betreff": "Betreff: Neuer Zweitmonitor flackert stark",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.3e-05
+    },
+    {
+      "betreff": "Betreff: Dringend: Account gesperrt – Präsentation in 30 Minuten",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "grenzfall": false,
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.1e-05
+    },
+    {
+      "betreff": "Betreff: Kompletter Netzwerkausfall im 2. Obergeschoss",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "hoch",
+      "grenzfall": false,
+      "kategorie": "Netzwerk",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.2e-05
+    },
+    {
+      "betreff": "Betreff: Sofortige Hilfe benötigt!",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "grenzfall": true,
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.6e-05
+    },
+    {
+      "betreff": "Betreff: Kleine Frage zum Homeoffice",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "grenzfall": false,
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.4e-05
+    },
+    {
+      "betreff": "Betreff: VPN-Verbindung klemmt mal wieder",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "grenzfall": true,
+      "kategorie": "Hardware",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": false,
+      "preis": 8.2e-05
+    },
+    {
+      "betreff": "Betreff: Anfrage zu Datenschutz Schulung im nächsten Quartal",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7e-05
+    },
+    {
+      "betreff": "Betreff: Lob und Feedback zum IT-Service",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6e-05
+    },
+    {
+      "betreff": "Betreff: Dringend: Hauptmonitore am Empfang ausgefallen",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "hoch",
+      "grenzfall": false,
+      "kategorie": "Hardware",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.9e-05
+    },
+    {
+      "betreff": "Betreff: Berechtigung für Azubi im Projekt-Wiki beantragen",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Zugang",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.1e-05
+    },
+    {
+      "betreff": "Betreff: Internet weg",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "hoch",
+      "grenzfall": false,
+      "kategorie": "Netzwerk",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.2e-05
+    },
+    {
+      "betreff": "Betreff: VPN lahm",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Netzwerk",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.1e-05
+    },
+    {
+      "betreff": "Betreff: Kein Netz, keine Anmeldung",
+      "soll_kategorie": "Netzwerk",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Netzwerk",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": false,
+      "preis": 6.8e-05
+    },
+    {
+      "betreff": "Betreff: Zwei Sachen",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.3e-05
+    },
+    {
+      "betreff": "Betreff: Altes Intranet",
+      "soll_kategorie": "Sonstiges",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Sonstiges",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.3e-05
+    },
+    {
+      "betreff": "Betreff: Token-Code wird nicht akzeptiert",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "hoch",
+      "grenzfall": false,
+      "kategorie": "Zugang",
+      "prioritaet": "hoch",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 7.6e-05
+    },
+    {
+      "betreff": "Betreff: Headset",
+      "soll_kategorie": "Hardware",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Hardware",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 5.6e-05
+    },
+    {
+      "betreff": "Betreff: Konto?",
+      "soll_kategorie": "Zugang",
+      "soll_prioritaet": "normal",
+      "grenzfall": false,
+      "kategorie": "Zugang",
+      "prioritaet": "normal",
+      "gueltig": true,
+      "ist_richtig": true,
+      "preis": 6.3e-05
+    }
+  ]
+}
